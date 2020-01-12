@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2d27890c-17cd-44c8-b6da-4ee0cc618c7e" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1W3SrbkDwV7BN5wCUpjrafJ3ZEa" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/youtube" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/youtube" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/youtube" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2d27890c-17cd-44c8-b6da-4ee0cc618c7e" name="Default Changelist" comment="" />
+      <created>1578376984537</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1578376984537</updated>
+      <workItem from="1578376985684" duration="23344000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="579" y="149" key="#Inspections" timestamp="1578480359608">
+      <screen x="0" y="23" width="1680" height="962" />
+    </state>
+    <state x="579" y="149" key="#Inspections/1680.23.1048.747/0.23.1680.962@0.23.1680.962" timestamp="1578480359608" />
+    <state x="454" y="200" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1578377044058">
+      <screen x="0" y="23" width="1680" height="962" />
+    </state>
+    <state x="454" y="200" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/1680.23.1048.747/0.23.1680.962@0.23.1680.962" timestamp="1578377044058" />
+    <state x="656" y="147" key="SettingsEditor" timestamp="1578400822021">
+      <screen x="0" y="23" width="1680" height="962" />
+    </state>
+    <state x="656" y="147" key="SettingsEditor/1680.23.1048.747/0.23.1680.962@0.23.1680.962" timestamp="1578400822021" />
+    <state x="645" y="241" width="670" height="676" key="search.everywhere.popup" timestamp="1578401150732">
+      <screen x="0" y="23" width="1680" height="962" />
+    </state>
+    <state x="645" y="241" width="670" height="676" key="search.everywhere.popup/1680.23.1048.747/0.23.1680.962@0.23.1680.962" timestamp="1578401150732" />
+  </component>
+</project>

@@ -1,0 +1,13 @@
+{% extends "parent.html" %}
+{% block title %}
+Register View
+{% endblock %}
+
+{% block body %}
+<br>
+<form action="register" method="post">
+    {% csrf_token %}
+    {{ form }}<br>
+    <input type="submit" value="Create Account">
+</form>
+{% endblock %}}

@@ -8,6 +8,6 @@ Register View
 <form action="register" method="post">
     {% csrf_token %}
     {{ form }}<br>
-    <input type="submit" value="Create Account">
+    <button type="button" class="btn btn-success">Create Account</button>
 </form>
 {% endblock %}}

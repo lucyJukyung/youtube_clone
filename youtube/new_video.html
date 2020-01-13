@@ -1,10 +1,24 @@
 {% extends "parent.html" %}
 {% block title %}
-Upload Video
+New Video View
 {% endblock %}
 
 {% block body %}
-This is New Video View. <br>
-This is a GET Request. <br>
-{{ variableA }}
-{% endblock %}
+<br>
+
+<form action="new_video" method="post">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+        <td>
+            <tr>
+            </tr>
+        </td>
+        <td>
+            <tr>
+                <button type="button" class="btn btn-primary">Upload Video</button>
+            </tr>
+        </td>
+    </table>
+</form>
+{% endblock %}}

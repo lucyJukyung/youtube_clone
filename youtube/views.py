@@ -3,6 +3,8 @@ from django.views.generic.base import View, HttpResponse, HttpResponseRedirect
 from .forms import LoginForm, RegisterForm, NewVideoForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
+from .models import Video, Comment
+import string, random
 
 class HomeView(View):
     template_name = "index.html"
@@ -88,10 +90,48 @@ class RegisterView(View):
 
 class NewVideo(View):
     template_name = "new_video.html"
+
     def get(self, request):
+        print(request.user.is_authenticated)
+        if request.user.is_authenticated == False:
+
+            # return HttpResponse("You have to login in order to upload a video")
+            return HttpResponseRedirect('HomeView')
         form = NewVideoForm()
+
         variableA = "New videos"
         return render(request, self.template_name, {'form': form})
 
     def post(self, request):
-        return HttpResponse("This is Index view. POST Request.")
+        # pass filled out html form View to NewVideoForm()
+        form = NewVideoForm(request.POST, request.FILES)
+        print(form)
+        print(request.POST)
+        print(request.FILES)
+
+        # check if the the form is valid
+        if form.is_valid():
+            # create a new video entry
+            title = form.cleaned_data['title']
+            description = form.cleaned_data['description']
+            file = form.cleaned_data['file']
+            print(dir(file)) # print data types to find file name ext.
+            print(file.name) # confirm with file.name to see if it is printing actual file name
+
+            # creating random string to add in file name to prevent crashing by uploading files under same name
+            # k=10 means 10 characters
+            random_char = ''.join(random.choices(string.ascii_uppercase + string.digits, k=10))
+            path = random_char + file.name # This will prevent same file name upload
+
+            new_video = Video(title=title,
+                              description=description,
+                              path=path,
+                              user=request.user)
+            new_video.save()
+
+            print(new_video)
+
+            # redirect to detail view template of a Video
+            return HttpResponseRedirect('/video/{}'.format(new_video.id))
+        else:
+            return HttpResponse("Your form is not valid. Go back and try again.")

@@ -5,8 +5,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/youtube/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtube/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youtube/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtube/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/youtube/new_video.html" beforeDir="false" afterPath="$PROJECT_DIR$/youtube/new_video.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube/parent.html" beforeDir="false" afterPath="$PROJECT_DIR$/youtube/parent.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/youtube/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/youtube/register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/youtube/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtube/views.py" afterDir="false" />
     </list>
@@ -67,6 +67,8 @@
       <option name="presentableId" value="Default" />
       <updated>1578376984537</updated>
       <workItem from="1578376985684" duration="28511000" />
+      <workItem from="1578897281819" duration="995000" />
+      <workItem from="1578994065326" duration="9207000" />
     </task>
     <servers />
   </component>
@@ -86,10 +88,10 @@
       <screen x="0" y="23" width="1680" height="962" />
     </state>
     <state x="656" y="147" key="SettingsEditor/1680.23.1048.747/0.23.1680.962@0.23.1680.962" timestamp="1578400822021" />
-    <state x="589" y="320" key="com.intellij.ide.util.TipDialog" timestamp="1578897283011">
+    <state x="589" y="320" key="com.intellij.ide.util.TipDialog" timestamp="1578994065360">
       <screen x="0" y="23" width="1680" height="962" />
     </state>
-    <state x="589" y="320" key="com.intellij.ide.util.TipDialog/0.23.1680.962@0.23.1680.962" timestamp="1578897283011" />
+    <state x="589" y="320" key="com.intellij.ide.util.TipDialog/0.23.1680.962@0.23.1680.962" timestamp="1578994065360" />
     <state x="645" y="241" width="670" height="676" key="search.everywhere.popup" timestamp="1578401150732">
       <screen x="0" y="23" width="1680" height="962" />
     </state>

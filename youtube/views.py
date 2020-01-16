@@ -4,13 +4,17 @@ from .forms import LoginForm, RegisterForm, NewVideoForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from .models import Video, Comment
-import string, random
+import string, random # for random string
 
 class HomeView(View):
     template_name = "index.html"
     def get(self, request):
-        variableA = "some texts"
-        return render(request, self.template_name, {'variableA': variableA})
+        # fetch video from DB
+        most_recent_videos = Video.objects.order_by('-datetime')[:10] # desc order (-)
+        print(most_recent_videos)
+        #most_recent_videos[5] = {'extraarea':}
+
+        return render(request, self.template_name, {'menu_active_item': 'home', 'most_recent_videos': most_recent_videos})
 
 
 class LoginView(View):

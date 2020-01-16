@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2d27890c-17cd-44c8-b6da-4ee0cc618c7e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtube/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtube/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube/new_video.html" beforeDir="false" afterPath="$PROJECT_DIR$/youtube/new_video.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/youtube/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youtube/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/youtube/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/youtube/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtube/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -68,7 +64,7 @@
       <updated>1578376984537</updated>
       <workItem from="1578376985684" duration="28511000" />
       <workItem from="1578897281819" duration="995000" />
-      <workItem from="1578994065326" duration="9207000" />
+      <workItem from="1578994065326" duration="11750000" />
     </task>
     <servers />
   </component>

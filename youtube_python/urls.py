@@ -15,14 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from youtube.views import HomeView, NewVideo, LoginView, RegisterView
+from youtube.views import HomeView, NewVideo, LoginView, RegisterView, VideoView, CommentView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('HomeView', HomeView.as_view()),
+    path('', HomeView.as_view()),
     path('login', LoginView.as_view()),
     path('register', RegisterView.as_view()),
     path('new_video', NewVideo.as_view()),
+    path('video/<int:id>', VideoView.as_view()),
+    path('comment', CommentView.as_view()),
 ]
 
 from django.conf import settings

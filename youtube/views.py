@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic.base import View, HttpResponse, HttpResponseRedirect
-from .forms import LoginForm, RegisterForm, NewVideoForm
+from .forms import LoginForm, RegisterForm, NewVideoForm, CommentForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from .models import Video, Comment
@@ -16,6 +16,27 @@ class HomeView(View):
 
         return render(request, self.template_name, {'menu_active_item': 'home', 'most_recent_videos': most_recent_videos})
 
+class VideoView(View):
+    template_name = "video.html"
+
+    def get(self, request, id):
+        print(request)
+        print('VIDEO ID: {}'.format(id))
+        # print(dir(request))
+        # DoesNotExist
+        # fetch video from DB by ID
+        video_by_id = Video.objects.get(id=id)
+        print(video_by_id)
+        context = {'video': video_by_id}
+        print(request.user)
+
+        if request.user.is_authenticated:
+            comments_form = CommentForm()
+            context['form'] = comments_form
+
+        print(context)
+        return render(request, self.template_name, context)
+
 
 class LoginView(View):
     template_name = "login.html"
@@ -25,7 +46,7 @@ class LoginView(View):
             # Do something for authenticated users.
             print("already logged in. redirecting")
             print(request.user) #to see who is logged in.
-            logout(request)
+            # logout(request)
             return HttpResponseRedirect('new_video')
 
         form = LoginForm()
@@ -47,12 +68,42 @@ class LoginView(View):
                 #request will have a value (user) inside.
                 print("authentication success")
                 # or create a new entry in a table to store logs
-                return HttpResponseRedirect('HomeView')
+                return HttpResponseRedirect('/')
             else:
                 print("authentication failed")
                 return HttpResponseRedirect('login')
                 #if login fails, redirect to login page
         return HttpResponse('This is login view. POST request.')
+
+class CommentView(View):
+    template_name = "comment.html"
+
+    def post(self, request):
+        # pass filled out html form View to NewVideoForm()
+        form = CommentForm(request.POST)
+
+        # check if the the form is valid
+        if form.is_valid():
+            # create a comment entry
+            text = form.cleaned_data['text']
+
+            print(dir(request))
+            print(form.data)
+
+            print(request.POST)
+            print(dir(form))
+            video_id = request.POST['video']
+            video = Video.objects.get(id=video_id)
+
+            new_comment = Comment(text=text, user=request.user, video=video)
+            new_comment.save()
+
+            print(new_comment)
+
+            return HttpResponseRedirect('/video/{}'.format(str(video_id)))
+
+        return HttpResponse("This is Comment view post request")
+
 
 class RegisterView(View):
     template_name = "register.html"
@@ -100,7 +151,7 @@ class NewVideo(View):
         if request.user.is_authenticated == False:
 
             # return HttpResponse("You have to login in order to upload a video")
-            return HttpResponseRedirect('HomeView')
+            return HttpResponseRedirect('/')
         form = NewVideoForm()
 
         variableA = "New videos"

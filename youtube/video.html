@@ -7,10 +7,22 @@ Video -
 {% block body %}
 
 <h2> {{ video.title }} </h2>
-Video Player
+<video controls autoplay width="320" height="240">
+    <source src="{{ video.path }}" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
 <p> {{ video.description }}</p>
 <br><br>
 <h3>Comments</h3>
+
+{% for comment in comments %}
+<p>
+    {{ comment.user }} posted on: {{ comment.datetime }}<br>
+    {{ comment.text }}
+</p>
+{% endfor %}
+
 <form action="/comment" method="post">
     {% csrf_token %}
     {{ form }}
@@ -18,4 +30,6 @@ Video Player
     <br>
     <button type="submit" class="btn btn-success">Post Comment</button>
 </form>
+
+
 {% endblock %}

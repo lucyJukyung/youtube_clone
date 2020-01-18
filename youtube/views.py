@@ -5,6 +5,17 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from .models import Video, Comment
 import string, random # for random string
+from django.core.files.storage import FileSystemStorage
+import os
+from wsgiref.util import FileWrapper
+
+class VideoFileView(View):
+    def get(self, request, file_name):
+        BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        file = FileWrapper(open(BASE_DIR+'/'+file_name, 'rb'))
+        response = HttpResponse(file, content_type='video/mp4')
+        response['Content-Disposition'] = 'attachment; filename={}'.format(file_name)
+        return response
 
 class HomeView(View):
     template_name = "index.html"
@@ -16,6 +27,11 @@ class HomeView(View):
 
         return render(request, self.template_name, {'menu_active_item': 'home', 'most_recent_videos': most_recent_videos})
 
+class LogoutView(View):
+    def get(self, request):
+        logout(request)
+        return HttpResponseRedirect('/')
+
 class VideoView(View):
     template_name = "video.html"
 
@@ -26,15 +42,22 @@ class VideoView(View):
         # DoesNotExist
         # fetch video from DB by ID
         video_by_id = Video.objects.get(id=id)
-        print(video_by_id)
+        BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        video_by_id.path = 'http://localhost:8000/get_video/'+video_by_id.path
         context = {'video': video_by_id}
+
         print(request.user)
+        print(video_by_id.path)
 
         if request.user.is_authenticated:
+            print('User signed in')
             comments_form = CommentForm()
             context['form'] = comments_form
 
-        print(context)
+        comments = Comment.objects.filter(video__id=id)
+        print(comments)
+
+        context['comments'] = comments
         return render(request, self.template_name, context)
 
 
@@ -177,6 +200,14 @@ class NewVideo(View):
             # k=10 means 10 characters
             random_char = ''.join(random.choices(string.ascii_uppercase + string.digits, k=10))
             path = random_char + file.name # This will prevent same file name upload
+
+            fs = FileSystemStorage(location = os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+            filename = fs.save(path, file)
+            file_url = fs.url(filename)
+
+            print(fs)
+            print(filename)
+            print(file_url)
 
             new_video = Video(title=title,
                               description=description,

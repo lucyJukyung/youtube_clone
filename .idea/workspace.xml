@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2d27890c-17cd-44c8-b6da-4ee0cc618c7e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youtube/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/youtube/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/youtube/parent.html" beforeDir="false" afterPath="$PROJECT_DIR$/youtube/parent.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube/video.html" beforeDir="false" afterPath="$PROJECT_DIR$/youtube/video.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtube/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +85,7 @@
       <updated>1578376984537</updated>
       <workItem from="1578376985684" duration="28511000" />
       <workItem from="1578897281819" duration="995000" />
-      <workItem from="1578994065326" duration="31775000" />
+      <workItem from="1578994065326" duration="32568000" />
     </task>
     <servers />
   </component>

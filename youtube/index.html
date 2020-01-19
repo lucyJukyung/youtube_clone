@@ -4,18 +4,18 @@ Home
 {% endblock %}
 
 {% block body %}
-<h1>welcome to Youtube Django Clone</h1> <br>
-<h2> Most Recent Videos: </h2>
-<br>
-    {% for video in most_recent_videos %}
-    <div style="align-content: left; width: 50%; border-color: darkgoldenrod; border-style: solid; border-width: 1px;">
-        <h6>{{ video.title }}</h6>
-        <p style="font-size: 7px; color: grey">Uploaded by {{ video.user }} on {{ video.datetime }}</p>
-        <p>{{ video.description }}</p>
-        <p style="text-align: right"><a href="video/{{ video.id }}">Watch Video</a> </p>
-        <hr>
-    </div>
-    {% endfor %}
+<h1>Welcome to Youtube Django Clone</h1> <br>
 
+<br>
+
+{% for video in most_recent_videos %}
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">{{ video.title }}</h1>
+        <p class="lead">{{ video.description }}</p>
+        <p style="text-align: right"><a href="video/{{ video.id }}">Watch Video</a> </p>
+    </div>
+</div>
+{% endfor %}
 
 {% endblock %}

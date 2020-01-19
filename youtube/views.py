@@ -54,7 +54,7 @@ class VideoView(View):
             comments_form = CommentForm()
             context['form'] = comments_form
 
-        comments = Comment.objects.filter(video__id=id)
+        comments = Comment.objects.filter(video__id=id).order_by('-datetime')[:5]
         print(comments)
 
         context['comments'] = comments

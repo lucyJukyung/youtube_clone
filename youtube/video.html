@@ -23,6 +23,7 @@ Video -
 </p>
 {% endfor %}
 
+{% if form %}
 <form action="/comment" method="post">
     {% csrf_token %}
     {{ form }}
@@ -30,6 +31,6 @@ Video -
     <br>
     <button type="submit" class="btn btn-success">Post Comment</button>
 </form>
-
+{% endif %}
 
 {% endblock %}

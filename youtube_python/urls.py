@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from youtube.views import HomeView, NewVideo, LoginView, RegisterView, VideoView, CommentView, VideoFileView, LogoutView
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,6 +29,8 @@ urlpatterns = [
     path('get_video/<file_name>', VideoFileView.as_view()),
     path('logout', LogoutView.as_view()),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
 
 from django.conf import settings
 from django.conf.urls import include, url  # For django versions before 2.0

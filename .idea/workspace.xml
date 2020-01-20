@@ -3,8 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="2d27890c-17cd-44c8-b6da-4ee0cc618c7e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtube/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/youtube/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/youtube/parent.html" beforeDir="false" afterPath="$PROJECT_DIR$/youtube/parent.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youtube/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtube/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youtube_python/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtube_python/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youtube_python/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtube_python/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,12 +51,13 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/youtube" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/images" />
       <recent name="$PROJECT_DIR$/youtube" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/youtube" />
     </key>
   </component>
   <component name="ServiceViewManager">
@@ -85,7 +89,7 @@
       <updated>1578376984537</updated>
       <workItem from="1578376985684" duration="28511000" />
       <workItem from="1578897281819" duration="995000" />
-      <workItem from="1578994065326" duration="32568000" />
+      <workItem from="1578994065326" duration="36790000" />
     </task>
     <servers />
   </component>
@@ -97,9 +101,10 @@
       <screen x="0" y="23" width="1680" height="962" />
     </state>
     <state x="579" y="149" key="#Inspections/1680.23.1048.747/0.23.1680.962@0.23.1680.962" timestamp="1578480359608" />
-    <state x="304" y="187" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1579344286863">
+    <state x="304" y="187" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1579490217137">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
+    <state x="304" y="187" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1579490217137" />
     <state x="304" y="187" key="#com.intellij.execution.impl.EditConfigurationsDialog/1680.0.1048.770/0.0.1680.1050@0.0.1680.1050" timestamp="1579344286863" />
     <state x="454" y="200" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1578377044058">
       <screen x="0" y="23" width="1680" height="962" />

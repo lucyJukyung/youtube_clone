@@ -177,7 +177,9 @@ class NewVideo(View):
             return HttpResponseRedirect('/')
         form = NewVideoForm()
 
-        variableA = "New videos"
+        STATICFILES_DIRS = (os.path.join( os.path.dirname( __file__ ), 'static' ),)
+        print(STATICFILES_DIRS)
+
         return render(request, self.template_name, {'form': form})
 
     def post(self, request):

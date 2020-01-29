@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from youtube.views import HomeView, NewVideo, LoginView, RegisterView, VideoView, CommentView, VideoFileView, LogoutView
+from youtube.views import HomeView, NewVideo, LoginView, RegisterView, VideoView, CommentView, VideoFileView, LogoutView, MyVideoView
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
@@ -28,6 +28,7 @@ urlpatterns = [
     path('comment', CommentView.as_view()),
     path('get_video/<file_name>', VideoFileView.as_view()),
     path('logout', LogoutView.as_view()),
+    path('my_videos', MyVideoView.as_view()),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

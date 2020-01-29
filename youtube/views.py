@@ -8,6 +8,8 @@ import string, random # for random string
 from django.core.files.storage import FileSystemStorage
 import os
 from wsgiref.util import FileWrapper
+import requests
+from bs4 import BeautifulSoup
 
 class VideoFileView(View):
     def get(self, request, file_name):
@@ -19,13 +21,65 @@ class VideoFileView(View):
 
 class HomeView(View):
     template_name = "index.html"
+
+    def get(self, request):
+        #start beautifulsoup scraping
+        URL="https://www.youtube.com"
+        result = requests.get(URL)
+        soup = BeautifulSoup(result.text, "html.parser")
+        div_s = soup.findAll('div', class_= 'yt-lockup')
+        rsSet = []
+
+        for test in div_s:
+            rsSet.append(test)
+
+        num_of_block = len(rsSet) #extracted number of video blocks
+        block = rsSet
+        print(num_of_block)
+
+        #start scraping contents from each block
+        def extract_detail(html):
+            title = html.find("a")["title"]
+            channel = html.find("div", class_= 'yt-lockup-byline').text
+            link = html.find("a")["href"]
+            views_dates = html.findAll("li")
+
+            view_list=[]
+            for li in views_dates:
+                view_list.append(li.text)
+
+            return {
+                'title': title,
+                'channel': channel,
+                'views': view_list[0],
+                'date': view_list[1],
+                'link': f"{URL}{link}"}
+
+        def extract_videos(num_of_block):
+            videos=[]
+
+            for i in range(num_of_block):
+                video  = block[i].findAll('div', class_= 'yt-lockup-content')
+                for content in video:
+                    block_content = extract_detail(content)
+                    videos.append(block_content)
+
+            return videos
+
+        video_list = extract_videos(num_of_block)
+
+        return render(request, self.template_name, {'menu_active_item': 'home', 'video_list': video_list})
+
+class MyVideoView(View):
+    template_name = "my_videos.html"
     def get(self, request):
         # fetch video from DB
         most_recent_videos = Video.objects.order_by('-datetime')[:10] # desc order (-)
         print(most_recent_videos)
         #most_recent_videos[5] = {'extraarea':}
 
-        return render(request, self.template_name, {'menu_active_item': 'home', 'most_recent_videos': most_recent_videos})
+        return render(request, self.template_name, {'menu_active_item': 'my_videos', 'most_recent_videos': most_recent_videos})
+
 
 class LogoutView(View):
     def get(self, request):

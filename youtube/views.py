@@ -39,32 +39,41 @@ class HomeView(View):
 
         #start scraping contents from each block
         def extract_detail(html):
-            title = html.find("a")["title"]
-            channel = html.find("div", class_= 'yt-lockup-byline').text
-            link = html.find("a")["href"]
-            views_dates = html.findAll("li")
+            title = html.find('div', class_= 'yt-lockup-content').find("a")["title"]
+            channel = html.find('div', class_= 'yt-lockup-content').find("div", class_= 'yt-lockup-byline').text
+            link = html.find('div', class_= 'yt-lockup-content').find("a")["href"]
+            views_dates = html.find('div', class_= 'yt-lockup-content').findAll("li")
 
             view_list=[]
             for li in views_dates:
                 view_list.append(li.text)
+
+            image = html.find("span", class_="yt-thumb-simple").find("img")["src"]
+            if "https://" not in image:
+                image = html.find("span", class_="yt-thumb-simple").find("img")["data-thumb"]
+
+            video_time = html.find("span", class_="yt-thumb-simple").find("span").text
 
             return {
                 'title': title,
                 'channel': channel,
                 'views': view_list[0],
                 'date': view_list[1],
-                'link': f"{URL}{link}"}
+                'link': f"{URL}{link}",
+                'image': image,
+                'video_time': video_time
+            }
 
         def extract_videos(num_of_block):
-            videos=[]
+            contents = []
 
             for i in range(num_of_block):
-                video  = block[i].findAll('div', class_= 'yt-lockup-content')
-                for content in video:
-                    block_content = extract_detail(content)
-                    videos.append(block_content)
+                content = block[i].findAll('div', class_='yt-lockup-dismissable')
+                for details in content:
+                    block_content = extract_detail(details)
+                    contents.append(block_content)
 
-            return videos
+            return contents
 
         video_list = extract_videos(num_of_block)
 

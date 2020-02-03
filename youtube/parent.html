@@ -1,44 +1,82 @@
 {% load static %}
+
 <html>
     <head>
         <title>{% block title %}{% endblock %}Youtube clone with Python</title>
         <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}"/>
         <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="{% static 'css/main.css'%}">
     </head>
     <body>
-    <div class="head-containner">
-        <div class="search-container">
-            <!-- Search form -->
-            <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-        </div>
-    </div>
 
-    <div class="container">
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <a class="nav-link {% if request.path == '/' %} active {% endif %}" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {% if request.path == '/new_video' %} active {% endif %}" href="/new_video">Upload Video</a>
-                </li>
-                {% if user.is_authenticated %}
-                <li class="nav-item">
-                    <a class="nav-link {% if request.path == '/my_videos' %} active {% endif %}" href="/my_videos">My Videos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/logout">Sign out</a>
-                </li>
-                {% else %}
-                <li class="nav-item">
-                    <a class="nav-link {% if request.path == '/login' %} active {% endif %}" href="/login">Sign In</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {% if request.path == '/register' %} active {% endif %}" href="/register">Sign Up</a>
-                </li>
-                {% endif %}
-            </ul>
+    <div id="container">
+        <div id="mySidenav" class="sidenav">
+            <a href="#">Home</a>
+            <a href="#">Trending</a>
+            <a href="#">My Videos</a>
+            <a href="#">Upload Video</a>
+        </div>
+
+        <div id="sideMenu">
+            <a href="#"><div class="fa fa-home" style="font-size:24px; color: #f1021b;"></div><p style="padding-top: 5px">Home</p></a>
+            <a href="#"><div class="fa fa-fire" style="font-size:24px; color: #f1021b;"></div><p style="padding-top: 5px">Trending</p></a>
+            <a href="#"><div class="fa fa-youtube-play" style="font-size:24px; color: #f1021b;"></div><p style="padding-top: 5px">My Videos</p></a>
+            <a href="#"><div class="fa fa-upload" style="font-size:24px; color: #f1021b;"></div><p style="padding-top: 5px">Upload</p></a>
+        </div>
+        <ul class="nav">
+            <li class="nav-item" id="menuIcon">
+                <a class="fa fa-reorder" style="font-size:22px" href="#" onclick="openNav()"></a>
+            </li>
+            <li class="nav-item">
+                <a href="#"><img src="{% static 'images/youtube.png' %}" height="25px"/></a>
+            </li>
+            <div class="search-container">
+                <form action="#">
+                    <input type="text" placeholder="Search" name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+            <li class="nav-item">
+                <a class="nav-link {% if request.path == '/' %} active {% endif %}" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {% if request.path == '/new_video' %} active {% endif %}" href="/new_video">Upload Video</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link {% if request.path == '/my_videos' %} active {% endif %}" href="/my_videos">My Videos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/logout">Sign out</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link {% if request.path == '/login' %} active {% endif %}" href="/login">Sign In</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {% if request.path == '/register' %} active {% endif %}" href="/register">Sign Up</a>
+            </li>
+            {% endif %}
+        </ul>
+
+        <script>
+            function openNav() {
+                var x = document.getElementById("mySidenav")
+                var y = document.getElementById("container")
+
+                if (x.style.width == "250px" && y.style.marginLeft == "250px"){
+                    x.style.width = "0";
+                    y.style.marginLeft= "5%";
+                }
+                else {
+                    x.style.width = "250px";
+                    y.style.marginLeft = "250px";
+                }
+            }
+        </script>
+
         {% block body %}
         {% endblock %}
     </div>

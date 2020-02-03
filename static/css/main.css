@@ -1,3 +1,72 @@
+html {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    position: relative;
+    width: 100%;
+    padding: 0;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#container{
+    transition: margin-left 0s;
+    margin: 5% 0 0 5%;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.nav-item{
+    margin: auto;
+}
+
+.nav #menuIcon{
+    position: fixed; /* Stay in place */
+    z-index: 0; /* Stay on top */
+    display: block;
+    padding: 19px 27px;
+}
+
+.nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 60px;
+    background: white;
+}
+
+.container input[type=text] {
+    max-width: 500px;
+    min-width: 200px;
+    height: 35px;
+    padding: 6px;
+    margin-top: 12px;
+    font-size: 17px;
+    border: solid 1px lightgray;
+    border-right: none;
+}
+
+.container .search-container button {
+    width: 70px;
+    height: 35px;
+    float: right;
+    padding: 6px 10px;
+    margin-top: 12px;
+    margin-right: 16px;
+    background: #f6f6f6;
+    font-size: 17px;
+    border: solid 1px lightgray;
+    cursor: pointer;
+}
+
+.container .search-container button:hover {
+    background: #f3f3f4;
+}
+
 .card-deck{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
@@ -33,4 +102,65 @@ li.date_list {
 
 ul li{
     display: inline;
+}
+
+
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: white; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 70px; /* Place content 60px from the top */
+    transition: 0s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 15px;
+    color: black;
+    display: block;
+    transition: 0s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    color: lightgray;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+/* The default side menu */
+#sideMenu {
+    height: 100%; /* 100% Full-height */
+    width: 5%; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 0; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: white; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 70px; /* Place content 60px from the top */
+    transition: 0s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The defualt side menu links */
+#sideMenu a {
+    padding: 12px 10px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 10px;
+    color: #f1021b;
+    display: block;
+    transition: 0s;
 }

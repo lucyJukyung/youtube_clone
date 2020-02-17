@@ -1,0 +1,28 @@
+{% extends "parent.html" %}
+{% block title %}
+Home
+{% endblock %}
+
+{% block body %}
+<h1>Welcome to Youtube Django Clone</h1> <br>
+
+{% for content in trending_list %}
+<div class="media">
+    <a href="{{content.link}}" target="_blank">
+        <img class="mr-3" src="{{content.image}}" alt="...">
+    </a>
+    <div class="media-body">
+        <a href="{{content.link}}">
+            <h5 class="mt-0">{{content.title}}</h5>
+        </a>
+        <ul>
+            <li>{{content.channel}}</li>
+            <li>{{content.views}}</li>
+            <li>{{content.date}}</li>
+        </ul>
+        {{content.description}}
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}

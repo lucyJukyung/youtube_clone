@@ -20,17 +20,17 @@
         </div>
 
         <div id="sideMenu">
-            <a href="#"><div class="fa fa-home" style="font-size:24px; color: #f1021b;"></div><p style="padding-top: 5px">Home</p></a>
-            <a href="#"><div class="fa fa-fire" style="font-size:24px; color: #f1021b;"></div><p style="padding-top: 5px">Trending</p></a>
-            <a href="#"><div class="fa fa-youtube-play" style="font-size:24px; color: #f1021b;"></div><p style="padding-top: 5px">My Videos</p></a>
-            <a href="#"><div class="fa fa-upload" style="font-size:24px; color: #f1021b;"></div><p style="padding-top: 5px">Upload</p></a>
+            <div class="side-link"><a class="side-icon {% if request.path == '/' %} active {% endif %}" href="/"><div class="fa fa-home {% if request.path == '/' %} active {% endif %}" style="font-size:24px"></div><p style="padding-top: 5px">Home</p></a></div>
+            <div class="side-link"><a class="side-icon {% if request.path == '/trending' %} active {% endif %}" href="/trending"><div class="fa fa-fire {% if request.path == '/trending' %} active {% endif %}" style="font-size:24px"></div><p style="padding-top: 5px">Trending</p></a></div>
+            <div class="side-link"><a class="side-icon {% if request.path == '/my_videos' %} active {% endif %}" href="/my_videos"><div class="fa fa-youtube-play {% if request.path == '/my_videos' %} active {% endif %}" style="font-size:24px"></div><p style="padding-top: 5px">My Videos</p></a></div>
+            <div class="side-link"><a class="side-icon {% if request.path == '/new_video' %} active {% endif %}" href="/new_video"><div class="fa fa-upload {% if request.path == '/new_video' %} active {% endif %}" style="font-size:24px"></div><p style="padding-top: 5px">Upload</p></a></div>
         </div>
         <ul class="nav">
             <li class="nav-item" id="menuIcon">
-                <a class="fa fa-reorder" style="font-size:22px" href="#" onclick="openNav()"></a>
+                <a class="fa fa-reorder" style="font-size:22px; color: #606060;" href="#" onclick="openNav()"></a>
             </li>
-            <li class="nav-item">
-                <a href="#"><img src="{% static 'images/youtube.png' %}" height="25px"/></a>
+            <li class="nav-item" id="logo">
+                <a href="/"><img src="{% static 'images/youtube.png' %}" height="25px"/></a>
             </li>
             <div class="search-container">
                 <form action="#">

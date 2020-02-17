@@ -22,15 +22,22 @@ def extract_detail(html):
     link = html.find('div', class_= 'yt-lockup-content').find("a")["href"]
     views_dates = html.find('div', class_= 'yt-lockup-content').findAll("li")
 
+
     view_list=[]
     for li in views_dates:
-        view_list.append(li.text)
+        if li is None:
+            print("No data")
+        else:
+            view_list.append(li.text)
+            print(view_list)
 
     image = html.find("span", class_="yt-thumb-simple").find("img")["src"]
     if "https://" not in image:
         image = html.find("span", class_="yt-thumb-simple").find("img")["data-thumb"]
 
     video_time = html.find("span", class_="yt-thumb-simple").find("span").text
+
+    # print(video_time)
 
     return {
         'title': title,

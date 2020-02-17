@@ -6,8 +6,6 @@ Home
 {% block body %}
 <h1>Welcome to Youtube Django Clone</h1> <br>
 
-<br>
-
 <div class="card-deck">
 {% for content in video_list %}
     <div class="card">
@@ -16,7 +14,7 @@ Home
         </a>
         <div class="card-body">
             <a href="{{content.link}}">
-                <h5 class="card-title">{{content.title}}</h5>
+                <h6 class="card-title">{{content.title}}</h6>
             </a>
             <p class="card-text">{{content.channel}}</p>
             <p class="card-text">
